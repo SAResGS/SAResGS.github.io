@@ -161,6 +161,10 @@
         <div class="columns is-centered has-text-centered">
           <div class="content has-text-justified">
             <img src="./images/sa_points_v4.pdf">
+            SA-Points generation. (a) A virtual camera pose is extrapolated from a reference training view by adding a translation Δt. 
+            (b) The reference image and the extrapolated render are jointly processed by a 3D lifting module (MASt3R by default) 
+            to triangulate SA-Points. Reprojection-error-based filtering retains scale-consistent, surface-aware geometry from 
+            a single training image — without multi-view input or monocular depth.
           </div>
       </div>
     </section>    
@@ -175,6 +179,11 @@
         <div class="columns is-centered has-text-centered">
           <div class="content has-text-justified">
             <img src="./images/coverage_estimation.pdf">
+            Coverage-based candidate selection. (a) SA-Points from training views define observed voxels. 
+            (b) Each candidate view yields a binary hash-encoded occupancy feature via frustum-based visibility. 
+            (c) The normalized Hamming distance between hash features quantifies coverage dissimilarity, 
+            enabling efficient selection of geometrically complementary views without rendered images or uncertainty scores. 
+            Uncertainty scoring is then applied only within the top-ranked, pre-filtered candidate subset (coarse-to-fine).
           </div>
       </div>
     </section>    
@@ -189,6 +198,10 @@
         <div class="columns is-centered has-text-centered">
           <div class="content has-text-justified">
             <img src="./images/residual_learning_v2.pdf">
+            Residual supervision in 3DGS. (a) At each iteration, a guided subset combines a random sample (α%) 
+            of Gaussians with the top-β most uncertain Gaussians (ranked by low opacity and large scale). 
+            (b) Supervising both the full render and the uncertainty-intensified subset render mimics ResNet-style skip connections,
+            amplifying gradients toward under-optimized Gaussians without modifying the rasterizer.
           </div>
         </div>
       </div>
@@ -204,6 +217,9 @@
         <div class="columns is-centered has-text-centered">
           <div class="content has-text-justified">
             <img src="./images/camera_pose_sample_v2.pdf">
+            Camera poses selected by each method. Competing methods (especially FisherRF) 
+            cluster around high-response regions due to coupling with 3DGS training dynamics, 
+            while SA-ResGS produces a more uniformly distributed, geometrically diverse set of viewpoints.
           </div>
         </div>
       </div>
