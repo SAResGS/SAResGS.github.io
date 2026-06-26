@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SA-ResGS: Self-Augmented Residual 3D Gaussian Splatting for Next Best View Selection">
+  <meta name="keywords" content="Active 3DGS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SA-ResGS: Self-Augmented Residual 3D Gaussian Splatting for Next Best View Selection</title>
+
+  <!-- fontawesome for icons -->
+  <script src="https://kit.fontawesome.com/b6f2d55583.js" crossorigin="anonymous"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+<!--  <link rel="icon" href="./static/images/favicon.svg">-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Dr. Splat: Directly Referring 3D Gaussian Splatting via Direct Language Embedding Registration</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://kim-junseong.github.io/">Kim Jun-Seong</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>2</sup>
+            <span class="author-block">
+              <a href="https://perezpellitero.github.io/">Eduardo Pérez Pellitero</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://youngkyoonjang.github.io/">Young Kyoon Jang</a><sup>4&dagger;</sup>,
+            </span>
+          </div>
+          <div class="publication-authors">
+            <span class="author-block"><sup>1</sup>POSTECH,</span>
+            <span class="author-block"><sup>2</sup>KAIST,</span>
+            <span class="author-block"><sup>3</sup>Huawei Noah's Ark Lab,</span>
+            <span class="author-block"><sup>4</sup>Rivian UK</span>
+            <br>
+            <span class="author-block"><sup>&dagger;</sup>denotes corresponding authors</span>
+            <!-- <span class="author-block"><sup>2</sup>UNIST</span> -->
+          </div>
+          <div class="is-size-5 column has-text-centered">
+            <span class="author-block bmvc-color">ECCV 2026</span>
+            <!-- <br> -->
+            <!-- <span class="author-block award-color">Best Poster Award</span> -->
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2601.03024"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/kaist-ami/Dr-Splat"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-brands fa-github"></i>
+                  </span>
+                  <span>GitHub</span>
+                </a>
+              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          We propose Self-Augmented Residual 3D Gaussian Splatting, a novel framework for stabilizing uncertainty quantification 
+          and enhancing uncertainty-aware supervision in Next-Best-View selection for active scene reconstruction. 
+          To efficiently estimate scene coverage, SA-ResGS generates geometry-consistent Self-Augmented point clouds (SA-Points) 
+          via triangulation between observed training views and rasterized extrapolated views. To address the lack of learning 
+          signals in underrepresented regions within sparse, wide-baseline settings, we introduce the first skip-connection-inspired 
+          residual learning strategy tailored for 3DGS. This mechanism amplifies gradient flow to weakly contributing, 
+          high-uncertainty Gaussians. Our contributions are threefold: (1) a physically grounded, diversified view selection strategy; 
+          (2) an uncertainty-aware residual supervision scheme that improves gradient flow and learning stability; and 
+          (3) implicitly debiased uncertainty quantification resulting from constrained view selection and residual supervision. 
+          Experiments on NeRF Synthetic, Mip-NeRF 360, and challenging extended benchmark from Deep Blending and Tanks and Temples 
+          demonstrate that SA-ResGS consistently outperforms state-of-the-art competing methods in both reconstruction quality 
+          and view selection robustness.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Dr. Splat</h2>
+          <div class="content has-text-justified">
+            <img src="images/drsplat_pipeline.png">
+            Dr. Splat directly associates CLIP embeddings with 3D Gaussians for open-vocabulary 3D scene understanding, 
+            achieving state-of-the-art 3D perception without rendering.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <h2 class="title is-3">3D object selection</h2>
+          </div>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="content has-text-justified">
+            <img src="./images/result.png">
+          </div>
+        </div>
+      </div>
+    </section>    
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <h2 class="title is-3">3D object localization</h2>
+          </div>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="content has-text-justified">
+            <img src="./images/3D_localization_1.png">
+          </div>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="content has-text-justified">
+            <img src="./images/3D_localization_2.png">
+          </div>
+        </div>
+      </div>
+    </section>    
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <h2 class="title is-3">3D semantic segmentation</h2>
+          </div>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="content has-text-justified">
+            <img src="./images/3D_segmentation.png">
+          </div>
+        </div>
+      </div>
+    </section>    
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Large scene results</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="content has-text-justified">
+          <div class="video-container">
+            <video autoplay controls muted loop>
+              <source src="./video/demo_video.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+    @inproceedings{saresgs26,
+        title={SA-ResGS: Self-Augmented Residual 3D Gaussian Splatting for Next Best View Selection},
+        author={Jun-Seong, Kim and Oh, Tae-Hyun and Eduardo, Pérez Pellitero and Jang, Youngkyoon},
+        booktitle=ECCV,
+        year={2026}
+    }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <h2 class="title is-3">Acknowledgement</h2>
+          <p>
+            We thank the members of AMILab and Huawei Noah's Ark Lab for their helpful discussions and proofreading.
+          </p>
+          <p>
+            This work was supported by the InnoCORE program of the Ministry of Science and ICT(26-InnoCORE-01); the National Research Foundation of Korea (NRF) grants funded by the Korea government (MSIT) (No. RS-2024-00451947, No. RS-2024-00453301); and the Institute of Information & Communications Technology Planning & Evaluation (IITP) grants funded by the Korea government (MSIT) (No. RS-2026-25518317, Development of AI memory mechanism that reflects human cognitive principles).
+          </p>
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to the <a href="https://github.com/nerfies/nerfies.github.io">original page</a> in the footer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
