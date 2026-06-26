@@ -220,7 +220,7 @@
           <div id="example1" class="bal-container-small" style="max-width:700px;">
             <div class="bal-after">
               <img src="./images/first_right.png" alt="Ours">
-              <div class="bal-afterPosition afterLabel" style="z-index:1;">Ours</div>
+              <div class="bal-afterPosition afterLabel">Ours</div>
             </div>
             <div class="bal-before" style="width:50%;">
               <div class="bal-before-inset">
@@ -238,23 +238,154 @@
     </div>
   </section>
 
-    <section class="section">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full">
-            <h2 class="title is-3">Selected Camera View Distribution</h2>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Visual Comparisons with 20 Training Views</h2>
+      </div>
+    </div>
+
+    <div class="columns is-centered is-multiline">
+      <!-- ▼ 슬라이더 1 -->
+      <div class="column is-half">
+        <div class="bal-container-small">
+          <div class="bal-after">
+            <img src="./images/first_right.png" alt="Ours">
+            <div class="bal-afterPosition afterLabel">Ours</div>
           </div>
-        </div>
-        <div class="columns is-centered has-text-centered">
-          <div class="content has-text-justified">
-            <img src="./images/camera_pose_sample_v2.png">
-            Camera poses selected by each method. Competing methods (especially FisherRF) 
-            cluster around high-response regions due to coupling with 3DGS training dynamics, 
-            while SA-ResGS produces a more uniformly distributed, geometrically diverse set of viewpoints.
+          <div class="bal-before" style="width:50%;">
+            <div class="bal-before-inset">
+              <img src="./images/first_left.png" alt="Baseline">
+              <div class="bal-beforePosition beforeLabel">Baseline</div>
+            </div>
+          </div>
+          <div class="bal-handle" style="left:50%;">
+            <span class="handle-left-arrow"></span>
+            <span class="handle-right-arrow"></span>
           </div>
         </div>
       </div>
-    </section>    
+
+      <!-- ▼ 슬라이더 2 (위 블록 통째로 복제, 이미지 경로만 2_left/2_right) -->
+      <div class="column is-half">
+        <div class="bal-container-small">
+          <div class="bal-after">
+            <img src="./images/second_right.png" alt="Ours">
+            <div class="bal-afterPosition afterLabel">Ours</div>
+          </div>
+          <div class="bal-before" style="width:50%;">
+            <div class="bal-before-inset">
+              <img src="./images/second_left.png" alt="Baseline">
+              <div class="bal-beforePosition beforeLabel">Baseline</div>
+            </div>
+          </div>
+          <div class="bal-handle" style="left:50%;">
+            <span class="handle-left-arrow"></span>
+            <span class="handle-right-arrow"></span>
+          </div>
+        </div>
+      </div>
+
+            <div class="column is-half">
+        <div class="bal-container-small">
+          <div class="bal-after">
+            <img src="./images/third_right.png" alt="Ours">
+            <div class="bal-afterPosition afterLabel">Ours</div>
+          </div>
+          <div class="bal-before" style="width:50%;">
+            <div class="bal-before-inset">
+              <img src="./images/third_left.png" alt="Baseline">
+              <div class="bal-beforePosition beforeLabel">Baseline</div>
+            </div>
+          </div>
+          <div class="bal-handle" style="left:50%;">
+            <span class="handle-left-arrow"></span>
+            <span class="handle-right-arrow"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ▼ 슬라이더 2 (위 블록 통째로 복제, 이미지 경로만 2_left/2_right) -->
+      <div class="column is-half">
+        <div class="bal-container-small">
+          <div class="bal-after">
+            <img src="./images/fourth_right.png" alt="Ours">
+            <div class="bal-afterPosition afterLabel">Ours</div>
+          </div>
+          <div class="bal-before" style="width:50%;">
+            <div class="bal-before-inset">
+              <img src="./images/fourth_left.png" alt="Baseline">
+              <div class="bal-beforePosition beforeLabel">Baseline</div>
+            </div>
+          </div>
+          <div class="bal-handle" style="left:50%;">
+            <span class="handle-left-arrow"></span>
+            <span class="handle-right-arrow"></span>
+          </div>
+        </div>
+      </div>
+
+            <div class="column is-half">
+        <div class="bal-container-small">
+          <div class="bal-after">
+            <img src="./images/fifth_right.png" alt="Ours">
+            <div class="bal-afterPosition afterLabel">Ours</div>
+          </div>
+          <div class="bal-before" style="width:50%;">
+            <div class="bal-before-inset">
+              <img src="./images/fifth_left.png" alt="Baseline">
+              <div class="bal-beforePosition beforeLabel">Baseline</div>
+            </div>
+          </div>
+          <div class="bal-handle" style="left:50%;">
+            <span class="handle-left-arrow"></span>
+            <span class="handle-right-arrow"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ▼ 슬라이더 2 (위 블록 통째로 복제, 이미지 경로만 2_left/2_right) -->
+      <div class="column is-half">
+        <div class="bal-container-small">
+          <div class="bal-after">
+            <img src="./images/sixth_right.png" alt="Ours">
+            <div class="bal-afterPosition afterLabel">Ours</div>
+          </div>
+          <div class="bal-before" style="width:50%;">
+            <div class="bal-before-inset">
+              <img src="./images/sixth_left.png" alt="Baseline">
+              <div class="bal-beforePosition beforeLabel">Baseline</div>
+            </div>
+          </div>
+          <div class="bal-handle" style="left:50%;">
+            <span class="handle-left-arrow"></span>
+            <span class="handle-right-arrow"></span>
+          </div>
+        </div>
+      </div>
+      <!-- 슬라이더 3, 4 ... 같은 블록을 계속 복제 (3_left/3_right, 4_left/4_right) -->
+    </div>
+  </div>
+</section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Selected Camera View Distribution</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="content has-text-justified">
+          <img src="./images/camera_pose_sample_v2.png">
+          Camera poses selected by each method. Competing methods (especially FisherRF) 
+          cluster around high-response regions due to coupling with 3DGS training dynamics, 
+          while SA-ResGS produces a more uniformly distributed, geometrically diverse set of viewpoints.
+        </div>
+      </div>
+    </div>
+  </section>    
 
   <section class="section">
     <div class="container is-max-desktop">
@@ -267,7 +398,7 @@
         <div class="content has-text-justified">
           <div class="video-container">
             <video autoplay controls muted loop>
-              <source src="./video/suppl_video.mp4" type="video/mp4">
+              <source src="./video/suppl_video_compress.mp4" type="video/mp4">
             </video>
           </div>
         </div>
