@@ -74,5 +74,22 @@ $(document).ready(function() {
     $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
     bulmaSlider.attach();
-
+    
+    document.querySelectorAll('.bal-container-small').forEach(function (c) {
+      var beforeWrap = c.querySelector('.bal-before'),
+          inset  = c.querySelector('.bal-before-inset'),
+          handle = c.querySelector('.bal-handle'), on = false;
+      function fit(){ inset.style.width = c.clientWidth + 'px'; }
+      function move(p){ p = Math.max(0, Math.min(100, p)); beforeWrap.style.width = p + '%'; handle.style.left = p + '%'; }
+      function at(e){ var x = e.touches ? e.touches[0].clientX : e.clientX, r = c.getBoundingClientRect();
+                      move((x - r.left) / r.width * 100); }
+      c.addEventListener('mousedown', function(e){ on = true; at(e); });
+      c.addEventListener('touchstart', function(e){ on = true; at(e); }, {passive:true});
+      window.addEventListener('mouseup', function(){ on = false; });
+      window.addEventListener('touchend', function(){ on = false; });
+      window.addEventListener('mousemove', function(e){ if(on) at(e); });
+      window.addEventListener('touchmove', function(e){ if(on){ at(e); e.preventDefault(); } }, {passive:false});
+      window.addEventListener('resize', fit);
+      fit(); move(50);
+    });
 })
